@@ -4,15 +4,21 @@
         <link rel="stylesheet" href="estilos.css" type="text/css">
         <script src="funciones.js"></script>
         <title>JueShort</title>
+        <meta charset="utf-8">
+        <style>
+            #boton_corregir_mates{
+                display:none;
+            }
+        </style>
     </head>
     <body>
         <div id="principio">
             <h1>Juegos de mates</h1>
-            <button onclick="mates()">Lanzar</button>
+            
         </div>
-        <div id="final">
-            <div id="resultados_mates"></div>
-            <button onclick="comprobar()">Comprobar</button>
-        </div>
+        <div id='resultados_mates'></div>
+        <div id="respuesta"></div>
+        <button onclick="mates()" id="boton_empezar_mates">Empezar</button>
+        <button onclick='corregir()' id="boton_corregir_mates" >Comprobar</button>
     </body>
 </html>
