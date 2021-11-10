@@ -118,12 +118,13 @@ function corregir(){
             escribir.innerHTML="<h4>Correcto</h4>  <h5>¿Desea jugar de nuevo?</h5>";
             boton_empezar.style.display="block";
             boton_corregir.style.display="none";
-            boton_porcentajes.style.dysplay="block";
+            boton_porcentajes.style.display="block";
             porcentaje_aciertos[i]=1;//vamos a definir el 1 como que ha acertado
             i++;
         }
         else{
             escribir.innerHTML="<h4 id='letra_incorrecto'>Incorrecto</h4>  <h5>Vuelva a intentarlo</h5>";
+            boton_porcentajes.style.display="block";
             porcentaje_aciertos[i]=0;//vamos a definir el 0 como que ha fallado
             i++;
         }

@@ -1,0 +1,23 @@
+html {
+  background-color: #ffffff;
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+}
+nav {
+  display: block;
+  width: 98%;
+  padding: 1%;
+}
+nav li {
+  list-style: none;
+  padding-left: 30%;
+}
+nav li a {
+  color: black;
+  text-decoration: none;
+  width: 49%;
+  float: left;
+}
+nav li hr {
+  overflow: hidden;
+  width: 98%;
+}
