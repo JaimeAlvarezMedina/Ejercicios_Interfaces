@@ -1,7 +1,30 @@
 function dados(num_dados){
+    var num;
     document.getElementById("resultados_dados").innerHTML="";
     for(var i=0;i<num_dados; i++){
-        document.getElementById("resultados_dados").innerHTML+=Math.round((Math.random()* (6-1)+1));
+        num=Math.round((Math.random()* (6-1)+1))
+        switch(num){
+            case 1:
+
+                break;
+            case 2:
+
+                break;
+            case 3:
+
+                break;
+            case 4:
+
+                break;
+            case 5:
+
+                break;
+            case 6:
+
+                break;
+        }
+        document.getElementById("resultados_dados").innerHTML+="x";
+        
     }
 }
 
@@ -138,4 +161,31 @@ function porcentaje(){
     }
     porcentaje=(num_acertadas/porcentaje_aciertos.length)*100;
     document.getElementById("porcentaje").innerHTML="<h5>Su porcentaje de acierto es:</h5> <h4>"+porcentaje+"%</h4>"
+}
+
+var array_usuarios=new Array();
+var array_contrasenas=new Array();
+
+
+function registro(){
+    var user=document.getElementById("user").value;
+    var contra=document.getElementById("pass").value;
+    array_usuarios.push(user);
+    array_contrasenas.push(contra);
+    i++;
+}
+var encontrado=0;
+function login(){
+    
+    for(var x=0;x<array_usuarios.length;x++){
+        if(document.getElementById("user").value==array_usuarios[x] && document.getElementById("pass").value==array_contrasenas[x]){
+            document.getElementById("iniciar").innerHTML=("<h1>Bienvenido</h1>"+document.getElementById("user").value);
+            encontrado=true;
+        }
+    }
+    if(encontrado==0){
+        document.getElementById("iniciar").innerHTML+=("<p id='erroneo'>El usuario o contraseña no son correctos</p>");
+        encontrado++;
+    }
+
 }

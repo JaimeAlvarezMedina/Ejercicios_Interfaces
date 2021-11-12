@@ -1,23 +1,44 @@
 html {
-  background-color: #ffffff;
-  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  background-color: #fcfffa;
+  background-image: url("https://www.transparenttextures.com/patterns/connected.png");
 }
 nav {
   display: block;
   width: 98%;
   padding: 1%;
 }
-nav li {
-  list-style: none;
-  padding-left: 30%;
+nav ul {
+  display: flex;
+  justify-content: space-around;
 }
-nav li a {
+nav ul li {
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 10px;
+  height: auto;
+  background-color: yellow;
+}
+nav ul a {
   color: black;
   text-decoration: none;
-  width: 49%;
-  float: left;
 }
-nav li hr {
-  overflow: hidden;
-  width: 98%;
+header {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 30%;
+}
+header fieldset {
+  width: 200px;
+}
+header fieldset div {
+  display: flex;
+  margin-left: 20px;
+}
+header fieldset div button {
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+#separador {
+  border: 1px solid #2e2c2c;
 }

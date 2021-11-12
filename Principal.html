@@ -8,21 +8,30 @@
     <body>
         <header>
             <h1>JueShort</h1>
-            <fieldset>
-                <legend>Registro:</legend>
-                <h3>Usuario:</h3><input type="text">
-                <h3>Contraseña:</h3><input type="password">
-                <button onclick="registro()">Entrar</button>
-            </fieldset>
+            <div>
+                <fieldset id="iniciar">
+                    <legend>Registro:</legend>
+                    <h4>Usuario:</h4><input type="text" id="user">
+                    <h4>Contraseña:</h4><input type="password" id="pass">
+                    <br>
+                    <div>
+                        <button onclick="registro()">Registrarme</button>
+                        <button onclick="login()">Entrar</button>
+                    </div>
+                </fieldset>
+            </div>
         </header>
         <nav>
-            <hr>
-                <ul>
-                    <li><a href="dados.html">Dados</a></li>
-                    <li><a href="Juego_memoria.html">Juegos de memoria</a></li>
-                </ul>
-                <br>
-            <hr>
+            <div id="separador"></div>
+                
+                    <ul>
+                        <li><a href="dados.html">Dados</a></li>
+                        <li><a href="Juego_mates.html">Juegos de mates</a></li>
+                        
+                    </ul> 
+            
+            <div id="separador"></div>
+            
         </nav>
     </body>
 </html>

@@ -1,29 +1,61 @@
 
+@tamanocajas:  50px;
+
 html{
-    background-color: #ffffff;
-    background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+    background-color: #fcfffa;
+    background-image: url("https://www.transparenttextures.com/patterns/connected.png");
 }
-
-
-
-
 
 nav{
     display: block;
     width: 98%;
     padding:1%;
-    li{
-        list-style: none;
-        padding-left: 30%;
+    ul{
+        display: flex;
+        justify-content: space-around;
+
+        li{
+            list-style: none;
+            margin-bottom: 10px;
+            padding: 10px;
+            height: auto;
+            background-color: yellow;
+        }  
+            
+        a{
+            color: black;
+            text-decoration: none;
+            
+        }
+    }
+}
+
+header{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 30%;
+    
+
+    fieldset{
+        width: 200px;
         
-    a{
-        color: black;
-        text-decoration: none;
-        width: 49%;
-        float: left;
-    }
-    hr{
-        overflow: hidden;
+
+        div{
+            display: flex;
+            margin-left: 20px;
+            
+            button{
+                margin-top: 20px;
+                margin-left: 10px;
+                margin-top: 10px;
+            }
+        }
+
+        
     }
 }
+
+#separador{
+    border: 1px solid rgb(46, 44, 44);
 }
+
