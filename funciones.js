@@ -5,25 +5,25 @@ function dados(num_dados){
         num=Math.round((Math.random()* (6-1)+1))
         switch(num){
             case 1:
-
+                document.getElementById("resultados_dados").innerHTML+="<img src='Num1.png' id='imagen_dados'></img>";
                 break;
             case 2:
-
+                document.getElementById("resultados_dados").innerHTML+="<img src='num2.png' id='imagen_dados'></img>";
                 break;
             case 3:
-
+                document.getElementById("resultados_dados").innerHTML+="<img src='Num3.png' id='imagen_dados'></img>";
                 break;
             case 4:
-
+                document.getElementById("resultados_dados").innerHTML+="<img src='Num4.png' id='imagen_dados'></img>";
                 break;
             case 5:
-
+                document.getElementById("resultados_dados").innerHTML+="<img src='Num5.png' id='imagen_dados'></img>";
                 break;
             case 6:
-
+                document.getElementById("resultados_dados").innerHTML+="<img src='Num6.png' id='imagen_dados'></img>";
                 break;
         }
-        document.getElementById("resultados_dados").innerHTML+="x";
+        
         
     }
 }
@@ -166,7 +166,6 @@ function porcentaje(){
 var array_usuarios=new Array();
 var array_contrasenas=new Array();
 
-
 function registro(){
     var user=document.getElementById("user").value;
     var contra=document.getElementById("pass").value;
@@ -179,7 +178,7 @@ function login(){
     
     for(var x=0;x<array_usuarios.length;x++){
         if(document.getElementById("user").value==array_usuarios[x] && document.getElementById("pass").value==array_contrasenas[x]){
-            document.getElementById("iniciar").innerHTML=("<h1>Bienvenido</h1>"+document.getElementById("user").value);
+            document.getElementById("iniciar").innerHTML=("<h1 id='login_correcto'>Bienvenido</h1> <h3 id='login_correcto'>"+document.getElementById("user").value+"</h3>");
             encontrado=true;
         }
     }
@@ -187,5 +186,4 @@ function login(){
         document.getElementById("iniciar").innerHTML+=("<p id='erroneo'>El usuario o contraseña no son correctos</p>");
         encontrado++;
     }
-
 }

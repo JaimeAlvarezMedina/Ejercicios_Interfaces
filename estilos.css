@@ -10,6 +10,7 @@ nav {
 nav ul {
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
 nav ul li {
   list-style: none;
@@ -17,6 +18,11 @@ nav ul li {
   padding: 10px;
   height: auto;
   background-color: yellow;
+  position: sticky;
+}
+nav ul li:hover {
+  padding: 10px;
+  border-radius: 30%;
 }
 nav ul a {
   color: black;
@@ -41,4 +47,28 @@ header fieldset div button {
 }
 #separador {
   border: 1px solid #2e2c2c;
+}
+#erroneo {
+  color: red;
+}
+#login_correcto {
+  text-align: center;
+}
+#imagen_dados {
+  justify-content: space-around;
+  margin: 15px;
+}
+#dados {
+  text-align: center;
+  margin-top: 10%;
+}
+#dados button {
+  margin-top: 20px;
+}
+#dados img {
+  width: 100px;
+  height: 100px;
+}
+#dados img:hover {
+  cursor: pointer;
 }

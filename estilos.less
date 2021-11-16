@@ -1,6 +1,3 @@
-
-@tamanocajas:  50px;
-
 html{
     background-color: #fcfffa;
     background-image: url("https://www.transparenttextures.com/patterns/connected.png");
@@ -13,6 +10,7 @@ nav{
     ul{
         display: flex;
         justify-content: space-around;
+        text-align: center;
 
         li{
             list-style: none;
@@ -20,7 +18,13 @@ nav{
             padding: 10px;
             height: auto;
             background-color: yellow;
+            position:sticky;
         }  
+
+        li:hover{
+            padding: 10px;
+            border-radius: 30%;
+        }
             
         a{
             color: black;
@@ -59,3 +63,30 @@ header{
     border: 1px solid rgb(46, 44, 44);
 }
 
+#erroneo{
+    color: red;
+}
+
+#login_correcto{
+    text-align: center;
+}
+
+#imagen_dados{
+    justify-content: space-around;
+    margin: 15px;
+}
+
+#dados{
+    text-align: center;
+    margin-top: 10%;
+    button{
+        margin-top: 20px;
+    }
+    img{
+        width: 100px;
+        height: 100px;
+    }
+    img:hover{
+        cursor: pointer;
+    }
+}
