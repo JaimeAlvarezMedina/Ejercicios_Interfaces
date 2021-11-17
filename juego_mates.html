@@ -5,25 +5,21 @@
         <script src="funciones.js"></script>
         <title>JueShort</title>
         <meta charset="utf-8">
-        <style>
-            #boton_corregir_mates{
-                display:none;
-            }
-            #boton_porcentaje{
-                display:none;
-            }
-        </style>
     </head>
     <body>
-        <div id="principio">
-            <h1>Juegos de mates</h1>
-            
+        <div id="juego_mate">
+            <div id="principio">
+                <h1>Juegos de mates</h1>
+            </div>
+            <div id="escribir">
+                <div id='resultados_mates'></div>
+                <div id="respuesta"></div>
+                <div id="porcentaje"></div>
+            </div>
+            <button onclick="mates()" id="boton_empezar_mates">Empezar</button>
+            <button onclick='corregir()' id="boton_corregir_mates" >Comprobar</button>
+            <button onclick="porcentaje()" id="boton_porcentaje">Porcentaje de aciertos</button>
+            <div id="video"></div>
         </div>
-        <div id='resultados_mates'></div>
-        <div id="respuesta"></div>
-        <div id="porcentaje"></div>
-        <button onclick="mates()" id="boton_empezar_mates">Empezar</button>
-        <button onclick='corregir()' id="boton_corregir_mates" >Comprobar</button>
-        <button onclick="porcentaje()" id="boton_porcentaje">Porcentaje de aciertos</button>
     </body>
 </html>

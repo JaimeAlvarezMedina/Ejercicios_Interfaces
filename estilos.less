@@ -1,8 +1,26 @@
+@tamano_espacio:10px;
+@color_botones: rgba(151, 234, 147, 0.308); 
+@color_bordes: rgba(79, 121, 77, 0.466);
+@tamano_fotos_footer:30px;
+
+@font-face {
+    font-family: 'Letra';
+    src: url('SourceCodePro-Medium.ttf');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 html{
     background-color: #fcfffa;
     background-image: url("https://www.transparenttextures.com/patterns/connected.png");
+    font-family: 'Letra';
 }
-
+h1{
+    margin-top: 6%;
+    text-shadow: 1px 1px 1px grey;
+    
+}
 nav{
     display: block;
     width: 98%;
@@ -14,16 +32,18 @@ nav{
 
         li{
             list-style: none;
-            margin-bottom: 10px;
-            padding: 10px;
+            margin-bottom: @tamano_espacio;
+            padding: @tamano_espacio;
             height: auto;
-            background-color: yellow;
+            background-color: @color_botones;
             position:sticky;
+            border: 2px solid @color_bordes;
+            border-radius: 25%;
         }  
 
         li:hover{
-            padding: 10px;
-            border-radius: 30%;
+            background-color: rgb(162, 217, 206 );
+            
         }
             
         a{
@@ -38,29 +58,59 @@ header{
     display: flex;
     justify-content: space-around;
     margin-left: 30%;
-    
 
     fieldset{
         width: 200px;
+        box-shadow: 5px 5px 5px grey;
         
 
         div{
             display: flex;
-            margin-left: 20px;
+            margin-left:@tamano_espacio+ 10px;
             
             button{
-                margin-top: 20px;
-                margin-left: 10px;
-                margin-top: 10px;
+                margin-top: @tamano_espacio+10px;
+                margin-left: @tamano_espacio;
+                margin-top: @tamano_espacio;
             }
         }
 
-        
     }
+}
+
+#gif{
+    width: 24%;
+    height: 25%;
+    margin-bottom: 55px;
+    justify-content: center;
+    margin-left: 35% ;
 }
 
 #separador{
     border: 1px solid rgb(46, 44, 44);
+}
+
+footer{
+    background-color: rgb(0, 0, 0);
+    color:white;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    justify-content: space-around;
+    width: 99%;
+    display: flex;
+        h4{
+            padding-left: @tamano_espacio;
+        }
+        div{
+            display: flex;
+            img{
+                padding: @tamano_espacio;
+                width: @tamano_fotos_footer;
+                height: @tamano_fotos_footer;
+            }
+        }
+        
 }
 
 #erroneo{
@@ -73,14 +123,14 @@ header{
 
 #imagen_dados{
     justify-content: space-around;
-    margin: 15px;
+    margin:@tamano_espacio+ 5px;
 }
 
 #dados{
     text-align: center;
     margin-top: 10%;
     button{
-        margin-top: 20px;
+        margin-top:@tamano_espacio+ 10px;
     }
     img{
         width: 100px;
@@ -88,5 +138,30 @@ header{
     }
     img:hover{
         cursor: pointer;
+    }
+}
+
+#juego_mate{
+    #principio{
+        text-align: center;
+        margin-top: 10%;
+    }
+    #escribir{
+        text-align: center;
+        margin-top: 1%;
+    }
+    #boton_corregir_mates{
+        margin-top: 10px;
+        margin-left: 48%;
+        display:none;
+    }
+    #boton_porcentaje{
+        margin-top: 10px;
+        margin-left: 45%;
+        display:none;
+    }
+    #boton_empezar_mates{
+        margin-top: 10px;
+        margin-left: 48%;
     }
 }

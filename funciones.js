@@ -146,13 +146,12 @@ function corregir(){
             i++;
         }
         else{
-            escribir.innerHTML="<h4 id='letra_incorrecto'>Incorrecto</h4>  <h5>Vuelva a intentarlo</h5>";
+            escribir.innerHTML="<h4 id='erroneo'>Incorrecto</h4>  <h5>Vuelva a intentarlo</h5>";
             boton_porcentajes.style.display="block";
             porcentaje_aciertos[i]=0;//vamos a definir el 0 como que ha fallado
             i++;
         }
 }
-
 function porcentaje(){
     var num_acertadas=0;
     var porcentaje;
@@ -160,18 +159,18 @@ function porcentaje(){
         num_acertadas=num_acertadas+porcentaje_aciertos[cont];
     }
     porcentaje=(num_acertadas/porcentaje_aciertos.length)*100;
-    document.getElementById("porcentaje").innerHTML="<h5>Su porcentaje de acierto es:</h5> <h4>"+porcentaje+"%</h4>"
+    document.getElementById("porcentaje").innerHTML="<h5>Su porcentaje de acierto es:</h5> <h4>"+porcentaje+"%</h4>";
+    if(porcentaje<50){
+        document.getElementById("video").innerHTML="<video src='Video.mp4' width='640' height='480' controls></video>";
+    }
 }
-
 var array_usuarios=new Array();
 var array_contrasenas=new Array();
-
 function registro(){
     var user=document.getElementById("user").value;
     var contra=document.getElementById("pass").value;
     array_usuarios.push(user);
     array_contrasenas.push(contra);
-    i++;
 }
 var encontrado=0;
 function login(){
@@ -179,7 +178,6 @@ function login(){
     for(var x=0;x<array_usuarios.length;x++){
         if(document.getElementById("user").value==array_usuarios[x] && document.getElementById("pass").value==array_contrasenas[x]){
             document.getElementById("iniciar").innerHTML=("<h1 id='login_correcto'>Bienvenido</h1> <h3 id='login_correcto'>"+document.getElementById("user").value+"</h3>");
-            encontrado=true;
         }
     }
     if(encontrado==0){
