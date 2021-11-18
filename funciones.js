@@ -161,7 +161,7 @@ function porcentaje(){
     porcentaje=(num_acertadas/porcentaje_aciertos.length)*100;
     document.getElementById("porcentaje").innerHTML="<h5>Su porcentaje de acierto es:</h5> <h4>"+porcentaje+"%</h4>";
     if(porcentaje<50){
-        document.getElementById("video").innerHTML="<video src='Video.mp4' width='640' height='480' controls></video>";
+        document.getElementById("video").innerHTML="<video src='Video.mp4' id='aprender' width='640' height='480' controls></video>";
     }
 }
 var array_usuarios=new Array();

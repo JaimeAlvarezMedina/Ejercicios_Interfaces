@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="estilos.css" type="text/css">
         <script src="funciones.js"></script>
         <title>JueShort</title>
+        <link rel="stylesheet" href="estilos.css" type="text/css">
+        
     </head>
     <body>
         <header>
             <h1>JueShort</h1>
             <div>
                 <fieldset id="iniciar">
-                    <legend>Registro:</legend>
-                    <h4>Usuario:</h4><input type="text" id="user">
-                    <h4>Contraseña:</h4><input type="password" id="pass">
-                    <br>
-                    <div>
-                        <button onclick="registro()">Registrarme</button>
-                        <button onclick="login()">Entrar</button>
-                    </div>
+                    <table>
+                        <legend>Registro:</legend>
+                        <tr>
+                            <td><h4>Usuario:</h4></td>
+                            <td><input type="text" id="user"></td>
+                        </tr>
+                        <tr>
+                            <td><h4>Contraseña:</h4></td>
+                            <td><input type="password" id="pass"></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="registro()">Registrarme</button></td>
+                            <td><button onclick="login()">Entrar</button></td>
+                        </tr>
+                    </table>
                 </fieldset>
             </div>
         </header>

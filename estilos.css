@@ -128,10 +128,15 @@ footer div img {
 }
 #juego_mate #boton_porcentaje {
   margin-top: 10px;
-  margin-left: 45%;
+  margin-left: 46.5%;
   display: none;
 }
 #juego_mate #boton_empezar_mates {
   margin-top: 10px;
   margin-left: 48%;
+}
+#juego_mate #video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
