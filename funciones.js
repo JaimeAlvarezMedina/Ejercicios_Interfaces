@@ -163,6 +163,9 @@ function porcentaje(){
     if(porcentaje<50){
         document.getElementById("video").innerHTML="<video src='Video.mp4' id='aprender' width='640' height='480' controls></video>";
     }
+    if(porcentaje>=50){
+        document.getElementById("video").innerHTML="";
+    }
 }
 var array_usuarios=new Array();
 var array_contrasenas=new Array();

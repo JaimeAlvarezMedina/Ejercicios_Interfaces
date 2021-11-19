@@ -4,10 +4,13 @@
   font-weight: normal;
   font-style: normal;
 }
-html {
+body {
   background-color: #fcfffa;
   background-image: url("https://www.transparenttextures.com/patterns/connected.png");
   font-family: 'Letra';
+}
+body {
+  max-height: 90vh;
 }
 h1 {
   margin-top: 6%;
@@ -72,7 +75,6 @@ footer {
   background-color: #000000;
   color: white;
   height: 50px;
-  position: fixed;
   bottom: 0;
   justify-content: space-around;
   width: 99%;
@@ -122,18 +124,18 @@ footer div img {
   margin-top: 1%;
 }
 #juego_mate #boton_corregir_mates {
-  margin-top: 10px;
-  margin-left: 48%;
+  margin: 10px;
   display: none;
 }
 #juego_mate #boton_porcentaje {
-  margin-top: 10px;
-  margin-left: 46.5%;
+  margin: 10px;
   display: none;
 }
-#juego_mate #boton_empezar_mates {
-  margin-top: 10px;
-  margin-left: 48%;
+#juego_mate .botones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 }
 #juego_mate #video {
   display: flex;

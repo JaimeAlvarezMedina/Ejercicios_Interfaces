@@ -2,7 +2,7 @@
 @color_botones: rgba(151, 234, 147, 0.308); 
 @color_bordes: rgba(79, 121, 77, 0.466);
 @tamano_fotos_footer:30px;
-
+ 
 @font-face {
     font-family: 'Letra';
     src: url('SourceCodePro-Medium.ttf');
@@ -11,10 +11,13 @@
 
 }
 
-html{
+body{
     background-color: #fcfffa;
     background-image: url("https://www.transparenttextures.com/patterns/connected.png");
     font-family: 'Letra';
+}
+body{
+    max-height: 90vh;
 }
 h1{
     margin-top: 6%;
@@ -94,7 +97,7 @@ footer{
     background-color: rgb(0, 0, 0);
     color:white;
     height: 50px;
-    position: fixed;
+    
     bottom: 0;
     justify-content: space-around;
     width: 99%;
@@ -151,18 +154,18 @@ footer{
         margin-top: 1%;
     }
     #boton_corregir_mates{
-        margin-top: 10px;
-        margin-left: 48%;
+        margin: @tamano_espacio;
         display:none;
     }
     #boton_porcentaje{
-        margin-top: 10px;
-        margin-left: 46.5%;
+        margin: @tamano_espacio;
         display:none;
     }
-    #boton_empezar_mates{
-        margin-top: 10px;
-        margin-left: 48%;
+    .botones{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: @tamano_espacio;
     }
     #video{
         display: flex;
