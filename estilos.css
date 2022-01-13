@@ -142,3 +142,55 @@ footer div img {
   justify-content: center;
   align-items: center;
 }
+#titulo {
+  text-align: center;
+}
+/*--------------------------------------------------------------------------Empiezan las animaciones---------------------------------------------------------------------------*/
+@keyframes movimiento {
+  from {
+    color: black;
+    margin-top: 2%;
+    width: 10%;
+    margin-left: 20%;
+  }
+  40% {
+    color: blue;
+    margin-top: 10%;
+    width: 10%;
+    margin-left: 10%;
+  }
+  70% {
+    color: red;
+    margin-top: 25%;
+    width: 10%;
+    margin-left: 90%;
+  }
+  90% {
+    color: blueviolet ;
+    margin-top: 40%;
+    width: 10%;
+    margin-left: 70%;
+  }
+  to {
+    color: black;
+    margin-top: 2%;
+    width: 10%;
+    margin-left: 20%;
+  }
+}
+.raton {
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-name: movimiento;
+}
+.muerto {
+  transition-duration: 5s;
+}
+.muerto:hover {
+  transform: rotate(180deg) translateY(-205px);
+}
+
+.empezar{
+  opacity: 0;
+  transition: opacity 4s steps(10);
+}
