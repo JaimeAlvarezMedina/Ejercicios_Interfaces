@@ -178,19 +178,40 @@ footer div img {
     margin-left: 20%;
   }
 }
+
+#ratoncito{
+  position: absolute;
+  
+}
+
 .raton {
   animation-duration: 5s;
   animation-iteration-count: infinite;
   animation-name: movimiento;
 }
 .muerto {
-  transition-duration: 5s;
+  transition-duration: 2s;
+  margin-left: 45%;
 }
 .muerto:hover {
   transform: rotate(180deg) translateY(-205px);
 }
 
 .empezar{
+  margin-left: 47.5%;
+  margin-top: 5%;
   opacity: 0;
-  transition: opacity 4s steps(10);
+  transition: font-size 2s steps(10);
 }
+
+.empezar:hover{
+  font-size: 120%;
+}
+
+#todo{
+  text-align: center;
+  margin: auto;
+  justify-content: space-around;
+}
+
+

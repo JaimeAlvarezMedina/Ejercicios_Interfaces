@@ -203,7 +203,11 @@ function muerto(){
             )
         }
     )
-    document.getElementById("pillala").innerHTML+=("<button class='empezar'>Empezar</button>");
+    document.getElementById("ratoncito").style.display="none";
+    document.getElementById("pillala").innerHTML+=("<button class='empezar' onclick='empezar()'>Empezar</button>");
     document.getElementsByClassName("empezar")[0].style.opacity = "1";
+}
 
+function empezar(){
+    document.getElementsByClassName("todo")[0].innerHTML=("<div id='titulo'><h1>Atrapa al raton</h1></div><div id='pillala'><img src='raton.png' onclick='atrapado()' id='ratoncito' class='raton'></div>")
 }
