@@ -211,3 +211,221 @@ function muerto(){
 function empezar(){
     document.getElementsByClassName("todo")[0].innerHTML=("<div id='titulo'><h1>Atrapa al raton</h1></div><div id='pillala'><img src='raton.png' onclick='atrapado()' id='ratoncito' class='raton'></div>")
 }
+
+function comprobar(){
+    /* Cogemos los valores del formulario */
+    var dni=document.getElementsByName("dni")[0].value;
+    var correo=document.getElementsByName("correo")[0].value;
+    var nombre=document.getElementsByName("nombre")[0].value;
+    var apellidos=document.getElementsByName("apellidos")[0].value;
+    var edad=document.getElementsByName("edad")[0].value;
+    var cp=document.getElementsByName("cp")[0].value;
+    var contra=document.getElementsByName("contra")[0].value;
+    var contra2=document.getElementsByName("contra2")[0].value;
+    var comentario=document.getElementsByName("comentario")[0].value;
+    /* Cogemos los lugares donde vamos a escribir*/
+    var escribir_dni=document.getElementById('error_dni');
+    var escribir_correo=document.getElementById('error_correo');
+    var escribir_edad=document.getElementById('error_edad');
+    var escribir_cp=document.getElementById('error_cp');
+    var escribir_contra=document.getElementById('error_contra');
+    var escribir_nombre=document.getElementById('error_nombre');
+    var escribir_apellidos=document.getElementById('error_apellidos');
+    var escribir_edad=document.getElementById('error_edad');
+    var escribir_comentario=document.getElementById("error_comentario");
+    /* Y creamos las variable para la comprobacion de las partes del formulario*/
+    var conf_dni;
+    var conf_cp;
+    var conf_contra;
+    var conf_correo;
+    var conf_nombre;
+    var conf_apellidos; 
+    var conf_edad;
+    var conf_comentario;
+    var conf_total;
+
+    conf_comentario=comprobar_comentario(comentario);
+    if(conf_comentario==0){
+        escribir_comentario.innerHTML=("<p id='letra_error'>No se pueden poner insultos en los comentarios</p>");
+    }
+    else{
+        escribir_comentario.innerHTML=("")
+    }
+    conf_nombre=comprobar_nombre(nombre);
+    if(conf_nombre==0){
+        escribir_nombre.innerHTML=("<p id='letra_error'>El nombre no puede estar vacio</p>");
+    }
+    else{
+        escribir_nombre.innerHTML=("")
+    }
+    conf_apellidos=comprobar_apellido(apellidos);
+    if(conf_apellidos==0){
+        escribir_apellidos.innerHTML=("<p id='letra_error'>El apellido no puede estar vacio</p>");
+    }
+    else{
+        escribir_apellidos.innerHTML=("")
+    }
+    conf_edad=comprobar_edad(edad);
+    if(conf_edad==0){
+        escribir_edad.innerHTML=("<p id='letra_error'>La edad no puede estar vacia</p>");
+    }
+    else{
+        escribir_edad.innerHTML=("")
+    }
+
+    conf_dni=comprobar_dni(dni);
+    if(conf_dni==0){
+        escribir_dni.innerHTML=("<p id='letra_error'>El dni que ha introducido no es correcto</p>");
+    }
+    else{
+        escribir_dni.innerHTML=("")
+    }
+    conf_correo=comprobar_correo(correo);
+    if(conf_correo==0){
+        escribir_correo.innerHTML=("<p id='letra_error'>El correo introducido no es valido</p>");
+    }
+    else{
+        escribir_correo.innerHTML=("");
+    }
+    conf_cp=comprobar_codigopostal(cp);
+    if(conf_cp==0){
+        escribir_cp.innerHTML=("<p id='letra_error'> El codigo postal no es valido</p>");
+    }
+    else{
+        escribir_cp.innerHTML=("");
+    }
+    conf_contra=comprobar_contraseña(contra,contra2);
+    if(conf_contra==0){
+        escribir_contra.innerHTML=("<p id='letra_error'>La contraseña no coincide</p>");
+    }
+    else{
+        escribir_contra.innerHTML=("");
+    }
+
+    console.log('dni:'+conf_dni);
+    console.log('correo:'+conf_correo);
+    console.log('cp:'+conf_cp);
+    console.log('contra:'+conf_contra);
+    
+    conf_total=conf_dni+conf_cp+conf_contra+conf_correo+conf_nombre+conf_apellidos+conf_edad+conf_comentario;
+    if(conf_total==8){
+        return false;
+    }
+    else{
+        return false;
+    }
+}
+
+/* Nos referiremos al 1 como true y al 0 como false, esto nos hara que ahorremos unas lineas de codigo y que sea mas claro */
+
+function comprobar_dni(dni){
+
+    
+    if(dni.length==9){//comprueba que tiene 9 digitos
+        for(i=0;i<8;i++){//recorre la cadena y comprueba que los caracteres sean numeros
+            if(isNaN(dni.charAt(i))){
+                return 0;//Si hay alguno que no es un numero, sale del bucle y manda un 0
+            }
+        }
+    }
+    else{
+        return 0;//Si no tiene 9 caracteres manda el el 0 y se sale de la funcion
+    }
+    if(!isNaN(dni.charAt(dni.length-1))){
+        return 0;
+    }
+    return 1;//Si no ha saltado ningun 0, significa que es true, por lo tanto se devulve la variable
+}
+
+function comprobar_codigopostal(cp){
+
+    if( cp.length==5  && parseInt(cp) >= 1000 && parseInt(cp)<=52999){//Comprobamos que el codigo postal tenga 5 digitos comprendidos entre el 01000 y el 52999
+        return 1;
+    }
+    else{
+        return 0;//Si no se cumple ninguna de estas, se devuelve que el codigo postal es falso
+    }
+
+}
+
+function comprobar_correo(correo){
+    var comprobado_a=false;//Para comprobar que haya una arroba
+    var comprobado_p=false;//Para comprobar si hay un punto despues del arroba, que seria el de .com o .es o similar
+    for(var i=0;i<correo.length;i++){//recorre la cadena
+        if(correo.charAt(i)=='@'){//Comprueba que haya una arroba
+            if(correo.charAt(i++)!='.' && comprobado_a==false){//Comprueba que al haber una arroba el siguiente caracter no es un punto
+                comprobado_a=true;
+            }
+            else{ 
+                
+                return 0;
+            } 
+        }
+        if(correo.charAt(i)=='.' && comprobado_a==true && correo.charAt(++i)!='.'){//Comprueba que despues de un punto no haya otro, y que haya un punto despues del arroba
+            comprobado_p=true;
+        }
+    }
+    if(comprobado_a==true && comprobado_p==true){//Comprueba que las 2 condiciones se han cumplido
+        return 1;
+    }
+    else{
+        
+        return 0;
+    }
+
+}
+
+function comprobar_contraseña(contra,contra2){
+    if(contra==contra2){//Si son iguales, confirmamos que ha escrito bien las 2 contraseñas
+        return 1;
+    }
+    else{
+        return 0;//Si no son iguales, nos devuelve falso
+    }
+}
+
+function comprobar_nombre(nombre){
+    if(nombre.length==0){
+        return 0;
+    }
+    for(var i=0;i<nombre.length;i++){//recorre la cadena y comprueba que los caracteres sean letras
+        if(!isNaN(nombre.charAt(i))){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+function comprobar_apellido(apellido){
+    if(apellido.length==0){
+        return 0;
+    }
+    for(var i=0;i<apellido.length;i++){//recorre la cadena y comprueba que los caracteres sean letras
+        if(!isNaN(apellido.charAt(i))){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+function comprobar_edad(edad){
+    if(edad.length==0){
+        return 0;
+    }
+    for(var i=0;i<edad.length;i++){//recorre la cadena y comprueba que los caracteres sean numeros
+        if(isNaN(edad.charAt(i))){
+            return 0;
+        }
+    }
+    return 1;
+}
+
+function comprobar_comentario(comentario){
+    comentario=comentario.toLowerCase();
+    if(comentario.match("aweonao") || comentario.match("hijo de puta") || comentario.match("mamon") || comentario.match("trolo") || comentario.match("pedazo de mierda sifilitica")){
+        return 0;
+    }
+    else{
+        return 1;
+    }
+}
