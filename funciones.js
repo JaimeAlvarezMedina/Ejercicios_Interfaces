@@ -212,7 +212,6 @@ function empezar(){
     document.getElementsByClassName("todo")[0].innerHTML=("<div id='titulo'><h1>Atrapa al raton</h1></div><div id='pillala'><img src='raton.png' onclick='atrapado()' id='ratoncito' class='raton'></div>")
 }
 
-function comprobar(){
     /* Cogemos los valores del formulario */
     var dni=document.getElementsByName("dni")[0].value;
     var correo=document.getElementsByName("correo")[0].value;
@@ -244,69 +243,17 @@ function comprobar(){
     var conf_comentario;
     var conf_total;
 
+function comprobar(){
+
+
     conf_comentario=comprobar_comentario(comentario);
-    if(conf_comentario==0){
-        escribir_comentario.innerHTML=("<p id='letra_error'>No se pueden poner insultos en los comentarios</p>");
-    }
-    else{
-        escribir_comentario.innerHTML=("")
-    }
     conf_nombre=comprobar_nombre(nombre);
-    if(conf_nombre==0){
-        escribir_nombre.innerHTML=("<p id='letra_error'>El nombre no puede estar vacio</p>");
-    }
-    else{
-        escribir_nombre.innerHTML=("")
-    }
     conf_apellidos=comprobar_apellido(apellidos);
-    if(conf_apellidos==0){
-        escribir_apellidos.innerHTML=("<p id='letra_error'>El apellido no puede estar vacio</p>");
-    }
-    else{
-        escribir_apellidos.innerHTML=("")
-    }
     conf_edad=comprobar_edad(edad);
-    if(conf_edad==0){
-        escribir_edad.innerHTML=("<p id='letra_error'>La edad no puede estar vacia</p>");
-    }
-    else{
-        escribir_edad.innerHTML=("")
-    }
-
     conf_dni=comprobar_dni(dni);
-    if(conf_dni==0){
-        escribir_dni.innerHTML=("<p id='letra_error'>El dni que ha introducido no es correcto</p>");
-    }
-    else{
-        escribir_dni.innerHTML=("")
-    }
     conf_correo=comprobar_correo(correo);
-    if(conf_correo==0){
-        escribir_correo.innerHTML=("<p id='letra_error'>El correo introducido no es valido</p>");
-    }
-    else{
-        escribir_correo.innerHTML=("");
-    }
     conf_cp=comprobar_codigopostal(cp);
-    if(conf_cp==0){
-        escribir_cp.innerHTML=("<p id='letra_error'> El codigo postal no es valido</p>");
-    }
-    else{
-        escribir_cp.innerHTML=("");
-    }
     conf_contra=comprobar_contraseña(contra,contra2);
-    if(conf_contra==0){
-        escribir_contra.innerHTML=("<p id='letra_error'>La contraseña no coincide</p>");
-    }
-    else{
-        escribir_contra.innerHTML=("");
-    }
-
-    console.log('dni:'+conf_dni);
-    console.log('correo:'+conf_correo);
-    console.log('cp:'+conf_cp);
-    console.log('contra:'+conf_contra);
-    
     conf_total=conf_dni+conf_cp+conf_contra+conf_correo+conf_nombre+conf_apellidos+conf_edad+conf_comentario;
     if(conf_total==8){
         return false;
@@ -429,3 +376,111 @@ function comprobar_comentario(comentario){
         return 1;
     }
 }
+
+
+
+
+
+$(document).ready(function(){
+    
+        $("#comentario").change(function(){
+                conf_comentario=comprobar_comentario(comentario);
+                if(conf_comentario==0){
+                    escribir_comentario.innerHTML=("<p id='letra_error'>No se pueden poner insultos en los comentarios</p>");
+                }
+                else{
+                    escribir_comentario.innerHTML=("")
+                }
+            }
+        )
+        $("#nombre").change(function(){
+                conf_nombre=comprobar_nombre(nombre);
+                if(conf_nombre==0){
+                    escribir_nombre.innerHTML=("<p id='letra_error'>El nombre no puede estar vacio</p>");
+                }
+                else{
+                    escribir_nombre.innerHTML=("")
+                }
+            }
+        )
+        $("#apellidos").change(function(){
+                conf_apellidos=comprobar_apellido(apellidos);
+                if(conf_apellidos==0){
+                    escribir_apellidos.innerHTML=("<p id='letra_error'>El apellido no puede estar vacio</p>");
+                }
+                else{
+                    escribir_apellidos.innerHTML=("")
+                }
+            }
+        )
+        $("#edad").change(function(){
+                conf_edad=comprobar_edad(edad);
+                if(conf_edad==0){
+                    escribir_edad.innerHTML=("<p id='letra_error'>La edad no puede estar vacia</p>");
+                }
+                else{
+                    escribir_edad.innerHTML=("")
+                }
+            }
+        )
+        $("#dni").change(function(){
+                conf_dni=comprobar_dni(dni);
+                if(conf_dni==0){
+                    escribir_dni.innerHTML=("<p id='letra_error'>El dni que ha introducido no es correcto</p>");
+                }
+                else{
+                    escribir_dni.innerHTML=("")
+                }
+            }
+        )
+        $("#correo").change(function(){
+                conf_correo=comprobar_correo(correo);
+                if(conf_correo==0){
+                    escribir_correo.innerHTML=("<p id='letra_error'>El correo introducido no es valido</p>");
+                }
+                else{
+                    escribir_correo.innerHTML=("");
+                }
+            }
+        )
+        $("#cp").change(function(){
+                conf_cp=comprobar_codigopostal(cp);
+                if(conf_cp==0){
+                    escribir_cp.innerHTML=("<p id='letra_error'> El codigo postal no es valido</p>");
+                }
+                else{
+                    escribir_cp.innerHTML=("");
+                }
+            }
+        )
+        $("#contra").change(function(){
+                conf_contra=comprobar_contraseña(contra,contra2);
+                if(conf_contra==0){
+                    escribir_contra.innerHTML=("<p id='letra_error'>La contraseña no coincide</p>");
+                }
+                else{
+                    escribir_contra.innerHTML=("");
+                }
+            }
+        )   
+        $("#contra2").change(function(){
+                conf_contra=comprobar_contraseña(contra,contra2);
+                if(conf_contra==0){
+                    escribir_contra.innerHTML=("<p id='letra_error'>La contraseña no coincide</p>");
+                }
+                else{
+                    escribir_contra.innerHTML=("");
+                }
+            }
+        )
+    }
+)
+    
+    
+    
+    
+
+    
+    
+    
+    
