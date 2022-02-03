@@ -5,22 +5,22 @@ function dados(num_dados){
         num=Math.round((Math.random()* (6-1)+1));//Generamos un numero random y lo redondeamos
         switch(num){//Dependiendo del numero que salga, nos mostrara su numero, pero con una imagen de un dado
             case 1:
-                document.getElementById("resultados_dados").innerHTML+="<img src='Num1.png' id='imagen_dados' class='dado'></img>";
+                document.getElementById("resultados_dados").innerHTML+="<img src='../Imagenes/Num1.png' id='imagen_dados' class='dado'></img>";
                 break;
             case 2:
-                document.getElementById("resultados_dados").innerHTML+="<img src='num2.png' id='imagen_dados' class='dado'></img>";
+                document.getElementById("resultados_dados").innerHTML+="<img src='../Imagenes/num2.png' id='imagen_dados' class='dado'></img>";
                 break;
             case 3:
-                document.getElementById("resultados_dados").innerHTML+="<img src='Num3.png' id='imagen_dados' class='dado'></img>";
+                document.getElementById("resultados_dados").innerHTML+="<img src='../Imagenes/Num3.png' id='imagen_dados' class='dado'></img>";
                 break;
             case 4:
-                document.getElementById("resultados_dados").innerHTML+="<img src='Num4.png' id='imagen_dados' class='dado'></img>";
+                document.getElementById("resultados_dados").innerHTML+="<img src='../Imagenes/Num4.png' id='imagen_dados' class='dado'></img>";
                 break;
             case 5:
-                document.getElementById("resultados_dados").innerHTML+="<img src='Num5.png' id='imagen_dados' class='dado'></img>";
+                document.getElementById("resultados_dados").innerHTML+="<img src='../Imagenes/Num5.png' id='imagen_dados' class='dado'></img>";
                 break;
             case 6:
-                document.getElementById("resultados_dados").innerHTML+="<img src='Num6.png' id='imagen_dados' class='dado'></img>";
+                document.getElementById("resultados_dados").innerHTML+="<img src='../Imagenes/Num6.png' id='imagen_dados' class='dado'></img>";
                 break;
         }
     }
@@ -160,7 +160,7 @@ function porcentaje(){
     porcentaje=(num_acertadas/porcentaje_aciertos.length)*100;
     document.getElementById("porcentaje").innerHTML="<h5>Su porcentaje de acierto es:</h5> <h4>"+porcentaje+"%</h4>";
     if(porcentaje<50){
-        document.getElementById("video").innerHTML="<video src='Video.mp4' id='aprender' width='640' height='480' controls></video>";//Si baja del 50% le mostramos un video para que aprenda
+        document.getElementById("video").innerHTML="<video src='../Imagenes/Video.mp4' id='aprender' width='640' height='480' controls></video>";//Si baja del 50% le mostramos un video para que aprenda
     }
     if(porcentaje>=50){
         document.getElementById("video").innerHTML="";//Si es mas del 50% lo quitamos
@@ -190,7 +190,7 @@ function login(){
 
 function atrapado(){
     document.getElementById("titulo").innerHTML="<h1>¡Capturado!</h1>";
-    document.getElementById("pillala").innerHTML="<img src='raton.png' onclick='muerto()' id='ratoncito' class='raton'>"
+    document.getElementById("pillala").innerHTML="<img src='../Imagenes/raton.png' onclick='muerto()' id='ratoncito' class='raton'>"
     document.getElementById("ratoncito").classList.replace("raton","muerto");
     document.getElementById("titulo").innerHTML+="<p>Pinchale en la panza</p>";
 }
@@ -209,29 +209,9 @@ function muerto(){
 }
 
 function empezar(){
-    document.getElementsByClassName("todo")[0].innerHTML=("<div id='titulo'><h1>Atrapa al raton</h1></div><div id='pillala'><img src='raton.png' onclick='atrapado()' id='ratoncito' class='raton'></div>")
+    document.getElementsByClassName("todo")[0].innerHTML=("<div id='titulo'><h1>Atrapa al raton</h1></div><div id='pillala'><img src='../Imagenes/raton.png' onclick='atrapado()' id='ratoncito' class='raton'></div>")
 }
-
-    /* Cogemos los valores del formulario */
-    var dni=document.getElementsByName("dni")[0].value;
-    var correo=document.getElementsByName("correo")[0].value;
-    var nombre=document.getElementsByName("nombre")[0].value;
-    var apellidos=document.getElementsByName("apellidos")[0].value;
-    var edad=document.getElementsByName("edad")[0].value;
-    var cp=document.getElementsByName("cp")[0].value;
-    var contra=document.getElementsByName("contra")[0].value;
-    var contra2=document.getElementsByName("contra2")[0].value;
-    var comentario=document.getElementsByName("comentario")[0].value;
-    /* Cogemos los lugares donde vamos a escribir*/
-    var escribir_dni=document.getElementById('error_dni');
-    var escribir_correo=document.getElementById('error_correo');
-    var escribir_edad=document.getElementById('error_edad');
-    var escribir_cp=document.getElementById('error_cp');
-    var escribir_contra=document.getElementById('error_contra');
-    var escribir_nombre=document.getElementById('error_nombre');
-    var escribir_apellidos=document.getElementById('error_apellidos');
-    var escribir_edad=document.getElementById('error_edad');
-    var escribir_comentario=document.getElementById("error_comentario");
+  
     /* Y creamos las variable para la comprobacion de las partes del formulario*/
     var conf_dni;
     var conf_cp;
@@ -243,17 +223,16 @@ function empezar(){
     var conf_comentario;
     var conf_total;
 
+
 function comprobar(){
-
-
-    conf_comentario=comprobar_comentario(comentario);
-    conf_nombre=comprobar_nombre(nombre);
-    conf_apellidos=comprobar_apellido(apellidos);
-    conf_edad=comprobar_edad(edad);
-    conf_dni=comprobar_dni(dni);
-    conf_correo=comprobar_correo(correo);
-    conf_cp=comprobar_codigopostal(cp);
-    conf_contra=comprobar_contraseña(contra,contra2);
+    conf_comentario=comprobar_comentario($('#comentario').val());
+    conf_nombre=comprobar_nombre($('#nombre').val());
+    conf_apellidos=comprobar_apellido($('#apellidos').val());
+    conf_edad=comprobar_edad($('#edad').val());
+    conf_dni=comprobar_dni($('#dni').val());
+    conf_correo=comprobar_correo($('#correo').val());
+    conf_cp=comprobar_codigopostal($('#cp').val());
+    conf_contra=comprobar_contraseña($('#contra').val(),$('#contra2').val());
     conf_total=conf_dni+conf_cp+conf_contra+conf_correo+conf_nombre+conf_apellidos+conf_edad+conf_comentario;
     if(conf_total==8){
         return false;
@@ -368,6 +347,7 @@ function comprobar_edad(edad){
 }
 
 function comprobar_comentario(comentario){
+    console.log(comentario)
     comentario=comentario.toLowerCase();
     if(comentario.match("aweonao") || comentario.match("hijo de puta") || comentario.match("mamon") || comentario.match("trolo") || comentario.match("pedazo de mierda sifilitica")){
         return 0;
@@ -382,94 +362,95 @@ function comprobar_comentario(comentario){
 
 
 $(document).ready(function(){
-    
+
         $("#comentario").change(function(){
-                conf_comentario=comprobar_comentario(comentario);
+                conf_comentario=comprobar_comentario($("#comentario").val());
                 if(conf_comentario==0){
-                    escribir_comentario.innerHTML=("<p id='letra_error'>No se pueden poner insultos en los comentarios</p>");
+                    $("#error_comentario").text('No se pueden poner insultos en los comentarios');
                 }
                 else{
-                    escribir_comentario.innerHTML=("")
+                    
+                    $("#error_comentario").text("");
                 }
             }
         )
         $("#nombre").change(function(){
-                conf_nombre=comprobar_nombre(nombre);
+                conf_nombre=comprobar_nombre($('#nombre').val());
                 if(conf_nombre==0){
-                    escribir_nombre.innerHTML=("<p id='letra_error'>El nombre no puede estar vacio</p>");
+                    $("#error_nombre").text("El nombre no puede estar vacio");
                 }
                 else{
-                    escribir_nombre.innerHTML=("")
+                    $("#error_nombre").text("");
                 }
             }
         )
         $("#apellidos").change(function(){
-                conf_apellidos=comprobar_apellido(apellidos);
+                conf_apellidos=comprobar_apellido($('#apellidos').val());
                 if(conf_apellidos==0){
-                    escribir_apellidos.innerHTML=("<p id='letra_error'>El apellido no puede estar vacio</p>");
+                    $("#error_apellidos").text("El apellido no puede estar vacio");
                 }
                 else{
-                    escribir_apellidos.innerHTML=("")
+                    $("#error_apellidos").text("");
                 }
             }
         )
         $("#edad").change(function(){
-                conf_edad=comprobar_edad(edad);
+                conf_edad=comprobar_edad($('#edad').val());
                 if(conf_edad==0){
-                    escribir_edad.innerHTML=("<p id='letra_error'>La edad no puede estar vacia</p>");
+                    $("#error_edad").text("La edad no puede estar vacia");
                 }
                 else{
-                    escribir_edad.innerHTML=("")
+                    $("#error_edad").text("")
                 }
             }
         )
         $("#dni").change(function(){
-                conf_dni=comprobar_dni(dni);
+                conf_dni=comprobar_dni($('#dni').val());
                 if(conf_dni==0){
-                    escribir_dni.innerHTML=("<p id='letra_error'>El dni que ha introducido no es correcto</p>");
+                    $("#error_dni").text("El dni que ha introducido no es correcto");
                 }
                 else{
-                    escribir_dni.innerHTML=("")
+                    $("#error_dni").text("");
                 }
             }
         )
         $("#correo").change(function(){
-                conf_correo=comprobar_correo(correo);
+                conf_correo=comprobar_correo($('#correo').val());
                 if(conf_correo==0){
-                    escribir_correo.innerHTML=("<p id='letra_error'>El correo introducido no es valido</p>");
+                    $("#error_correo").text("El correo introducido no es valido");
                 }
                 else{
-                    escribir_correo.innerHTML=("");
+                    $("#error_correo").text("");
                 }
             }
         )
         $("#cp").change(function(){
-                conf_cp=comprobar_codigopostal(cp);
+                conf_cp=comprobar_codigopostal($('#cp').val());
                 if(conf_cp==0){
-                    escribir_cp.innerHTML=("<p id='letra_error'> El codigo postal no es valido</p>");
+                    $("#error_cp").text(" El codigo postal no es valido");
                 }
                 else{
-                    escribir_cp.innerHTML=("");
+                    $("#error_cp").text("");
                 }
             }
         )
         $("#contra").change(function(){
-                conf_contra=comprobar_contraseña(contra,contra2);
+                conf_contra=comprobar_contraseña($('#contra').val(),$('#contra2').val());
                 if(conf_contra==0){
-                    escribir_contra.innerHTML=("<p id='letra_error'>La contraseña no coincide</p>");
+                    $("#error_contra").text("La contraseña no coincide");
                 }
                 else{
-                    escribir_contra.innerHTML=("");
+                    $("#error_contra").text("");
                 }
             }
         )   
         $("#contra2").change(function(){
-                conf_contra=comprobar_contraseña(contra,contra2);
+                conf_contra=comprobar_contraseña($('#contra').val(),$('#contra2').val());
                 if(conf_contra==0){
-                    escribir_contra.innerHTML=("<p id='letra_error'>La contraseña no coincide</p>");
+                    $("#error_contra").text("La contraseña no coincide");
                 }
                 else{
-                    escribir_contra.innerHTML=("");
+                    $("#error_contra").text("");
                 }
             }
         )
